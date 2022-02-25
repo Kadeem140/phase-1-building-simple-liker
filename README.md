@@ -41,7 +41,7 @@ to call `.json()` on the response so you only need a single `then()` call.
 
 Here's the specification:
 
-* Add the `.hidden` class to the error modal in the HTML so it does not appear
+ok* Add the `.hidden` class to the error modal in the HTML so it does not appear
   when the page first loads
 * When a user clicks on an empty heart:
   * Invoke `mimicServerCall` to simulate making a server request
