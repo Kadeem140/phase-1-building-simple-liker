@@ -6,11 +6,25 @@ const FULL_HEART = '♥'
 
 //Needed Selectors
 const likeGlyph = document.querySelector('.like-glyph')
+const hiddenDiv = document.querySelector('#modal')
 
 //Eventlisteners
-likeGlyph.addEventListener("click", mimicServerCall)
-  likeGlyph.then(res => console.log(res))
-  .catch(err => console.log(err, "error message"))
+function clickFunc(e){
+  console.log(e.target.innerHTML, "target")
+  mimicServerCall()
+    .then(function(){
+      if(e.target.innerHTML == EMPTY_HEART){
+        likeGlyph.classList.add(".activated-heart")
+    }
+    else{
+      likeGlyph.classList.remove(".activated-heart")
+    }
+    }) //remove hidden class to display error modal
+    .catch(function(){
+       return hiddenDiv.classList.remove(".hidden")
+    }) //respond to error & display error msg
+}
+likeGlyph.addEventListener("click", clickFunc)
 
 console.log(likeGlyph)
 
